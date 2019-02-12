@@ -15,7 +15,6 @@ import com.sj.http_practice.R;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.Set;
 
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
@@ -28,6 +27,8 @@ import okhttp3.Response;
 public class Synchronous_Get extends Fragment {
 
     private static final String TAG = "===" + Synchronous_Get.class.getSimpleName();
+    private final String URL = "https://publicobject.com/helloworld.txt";
+    private final String URL2 = "https://direct.wap.zol.com.cn/ipj/baoban/index.php?v=7.0&action=downloadZip&deviceType=2&vs=and704";
 
     @Nullable
     @Override
@@ -71,11 +72,14 @@ public class Synchronous_Get extends Fragment {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://publicobject.com/helloworld.txt")
+                        .url(URL)
+                        //.addHeader("", "application/json")
                         .build();
 
+                Log.e(TAG, request.toString());
+
                 //-------------------------//
-                requestLine.append(request.toString());
+                requestLine.append(request.method() + " " + request.url() + " ");
 
                 Headers requestHeader = request.headers();
                 Iterator<String> names = requestHeader.names().iterator();
@@ -92,7 +96,7 @@ public class Synchronous_Get extends Fragment {
                 try (Response response = client.newCall(request).execute()) {
                     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
-                    statueLine.append(response.toString());
+                    statueLine.append(response.protocol() + " " + response.code() + " " + response.message());
 
                     Headers responseHeaders = response.headers();
                     for (int i = 0; i < responseHeaders.size(); i++) {
@@ -106,7 +110,10 @@ public class Synchronous_Get extends Fragment {
                 }
 
 
-                call.end(requestLine.toString() + "\n" + requestHeader.toString() + "\n-----------------------------\n" + requestLine.toString() + "\n" + responseStr.toString());
+                call.end(requestLine.toString() + "\n"
+                        + requestHeader.toString() + "\n-----------------------------\n"
+                        + statueLine.toString() + "\n"
+                        + responseStr.toString());
             }
         }.start();
     }
