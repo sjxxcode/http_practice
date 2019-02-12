@@ -1,0 +1,4 @@
+#Tue Feb 12 17:53:24 CST 2019
+base.0=F\:\\github_workspace\\http_practice\\build\\intermediates\\transforms\\dexMerger\\debug\\3
+path.0=classes.dex
+renamed.0=classes.dex
