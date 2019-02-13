@@ -20,6 +20,7 @@
         </activity>
 
         <activity android:name=".okhttp.base_opration.get.GetAct"/>
+        <activity android:name=".okhttp.base_opration.post.PostAct"/>
         <activity android:name=".okhttp.base_opration.head.Head"/>
         <activity android:name=".okhttp.base_opration.header.HeaderAct"/>
     </application>
