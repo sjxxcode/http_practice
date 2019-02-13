@@ -32,9 +32,9 @@ import okhttp3.Response;
  *
  * Created by SJ on 2019/2/13.
  */
-public class Range extends Fragment {
+public class SetHeader extends Fragment {
 
-    private static final String TAG = "===" + Range.class.getSimpleName();
+    private static final String TAG = "===" + SetHeader.class.getSimpleName();
     private final String URL = "http://pic29.photophoto.cn/20131021/0005018305864117_b.png";
 
     private TextView text;
@@ -69,6 +69,9 @@ public class Range extends Fragment {
                 Request request = new Request.Builder()
                         .url(URL)
                         .header("Range", "bytes=0-30000")
+                        .addHeader("User-Agent", "Custom UserAgent")
+                        .addHeader("Accept", "text/html")
+                        .addHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
                         .build();
                 Response response = client.newCall(request).execute();
 

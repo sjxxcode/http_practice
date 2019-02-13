@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.sj.http_practice.okhttp.base_opration.get.GetAct;
 import com.sj.http_practice.okhttp.base_opration.head.Head;
+import com.sj.http_practice.okhttp.base_opration.header.HeaderAct;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Head.class));
+            }
+        });
+
+        this.findViewById(R.id.header).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HeaderAct.class));
             }
         });
     }

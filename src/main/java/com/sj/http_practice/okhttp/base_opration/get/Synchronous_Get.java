@@ -22,6 +22,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
+ * okhttp-同步get
+ *
  * Created by SJ on 2019/2/12.
  */
 public class Synchronous_Get extends Fragment {
