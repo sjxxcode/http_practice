@@ -1,7 +1,7 @@
 # http_practice
 ## http学习笔记
 * 目录
-  * 笔记
+  * [笔记](https://github.com/sjxxcode/http_practice/tree/master/%E7%AC%94%E8%AE%B0)
   * 实际操作
     * 基础知识
       * Method
