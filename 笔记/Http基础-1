@@ -1,0 +1,21 @@
+Method:
+Head:
+定义:响应报文中不包含Body(就像方法名定义的一样,响应报文中只包含"状态行+Headers")
+作用:可以根据返回的状态行，确认资源是否存在等。
+     可以根据返回的Header，确定资源是否被修改了,类型,长度等等信息。
+
+
+Header
+-请求头
+--User-Agent:用户代理，是一个身份的说明。用于表示此次请求的是谁发起的。
+--Range:自定Body中内容的范围。
+
+-响应头
+--Location:重定向的目标URL。
+--Content-Length:指定内容的长度。
+--Content-Type:Body中内容的类型。
+---text/html:html文件。
+---application/json:json格式数据。
+---application/x-www-form-urlencoded:普通表单。
+---multipart/form-data:用于传输包含"二级制"内容的数据(图片,音视频文件)。
+---image/jpeg/webp/png/zip等等:用于传输单个文件。
