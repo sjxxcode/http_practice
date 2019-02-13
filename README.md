@@ -5,11 +5,12 @@
   * 实际操作
     * 基础知识
       * Method
-        * GET
-        * HEAD
+        * [GET](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/get)
+        * [HEAD](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/head)
         * POST
         * PUT
         * DELETE
      * Header
+        * [Range](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/header/Range)
     
     
