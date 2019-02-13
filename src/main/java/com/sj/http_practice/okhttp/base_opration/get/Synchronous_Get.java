@@ -28,7 +28,7 @@ public class Synchronous_Get extends Fragment {
 
     private static final String TAG = "===" + Synchronous_Get.class.getSimpleName();
     private final String URL = "https://publicobject.com/helloworld.txt";
-    private final String URL2 = "https://direct.wap.zol.com.cn/ipj/baoban/index.php?v=7.0&action=downloadZip&deviceType=2&vs=and704";
+    private final String URL2 = "http://img18.3lian.com/d/file/201711/24/529494b4dc8b9368cbf309e29be38f90.png";
 
     @Nullable
     @Override
@@ -72,8 +72,7 @@ public class Synchronous_Get extends Fragment {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url(URL)
-                        //.addHeader("", "application/json")
+                        .url(URL2)
                         .build();
 
                 Log.e(TAG, request.toString());

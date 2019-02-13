@@ -18,6 +18,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="同步Get"/>
+a
+            <Button
+                android:id="@+id/asyn_get"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="异步Get"/>
 
         </com.sj.http_practice.TagLayout>
 

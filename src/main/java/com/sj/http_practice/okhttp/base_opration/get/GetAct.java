@@ -26,11 +26,19 @@ public class GetAct extends FragmentActivity {
                 addFragment(targetF);
             }
         });
+
+        this.findViewById(R.id.asyn_get).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment targetF = Fragment.instantiate(GetAct.this, Asynchronous_Get.class.getName());
+                addFragment(targetF);
+            }
+        });
     }
 
-    private void addFragment(Fragment f){
+    private void addFragment(Fragment f) {
         FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.content_1, f);
+        ft.replace(R.id.content_1, f);
         ft.commit();
     }
 }

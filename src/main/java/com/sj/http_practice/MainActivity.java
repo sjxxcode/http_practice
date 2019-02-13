@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.sj.http_practice.okhttp.base_opration.get.GetAct;
+import com.sj.http_practice.okhttp.base_opration.head.Head;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, GetAct.class));
+            }
+        });
+
+        this.findViewById(R.id.head).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Head.class));
             }
         });
     }
