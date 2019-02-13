@@ -7,13 +7,11 @@
       * Method
         * [GET](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/get)
         * [HEAD](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/head)
-        * POST
+        * [POST](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/post)
         * PUT
         * DELETE
      * Header
         * [Range](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/header/Range.java)
 
-    * okhttp基本使用
-        * 设置请求报文中的Header
     
     
