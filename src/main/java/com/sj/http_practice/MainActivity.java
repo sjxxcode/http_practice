@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.sj.http_practice.okhttp.base_opration.cache.CacheAct;
+import com.sj.http_practice.okhttp.base_opration.cancel.CancelAct;
 import com.sj.http_practice.okhttp.base_opration.get.GetAct;
 import com.sj.http_practice.okhttp.base_opration.head.Head;
 import com.sj.http_practice.okhttp.base_opration.header.HeaderAct;
@@ -42,6 +44,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HeaderAct.class));
+            }
+        });
+
+        this.findViewById(R.id.cache).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CacheAct.class));
+            }
+        });
+
+        this.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CancelAct.class));
             }
         });
     }

@@ -14,42 +14,24 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/post_str"
+                android:id="@+id/clear_cache"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发送字符串"/>
+                android:text="清空缓存"/>
 
             <Button
-                android:id="@+id/post_json"
+                android:id="@+id/request_net"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发送json"/>
+                android:text="从网络获取"/>
 
             <Button
-                android:id="@+id/post_file"
+                android:id="@+id/request_cache"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发送文件"/>
-
-            <Button
-                android:id="@+id/post_form"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="发送普通表单"/>
-
-            <Button
-                android:id="@+id/post_mutipart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="发送多部分数据(文本+图片)"/>
+                android:text="设置缓存,执行请求"/>
 
         </com.sj.http_practice.TagLayout>
-
-        <LinearLayout
-            android:id="@+id/content_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"/>
     </LinearLayout>
 
 </ScrollView>

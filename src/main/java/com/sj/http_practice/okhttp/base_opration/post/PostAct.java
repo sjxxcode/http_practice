@@ -45,6 +45,22 @@ public class PostAct extends FragmentActivity {
             }
         });
 
+        this.findViewById(R.id.post_form).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment targetF = Fragment.instantiate(PostAct.this, PostFormData.class.getName());
+                addFragment(targetF);
+            }
+        });
+
+        this.findViewById(R.id.post_mutipart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment targetF = Fragment.instantiate(PostAct.this, PostMutipartData.class.getName());
+                addFragment(targetF);
+            }
+        });
+
     }
 
     private void addFragment(Fragment f) {

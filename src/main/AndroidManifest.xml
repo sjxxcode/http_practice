@@ -3,6 +3,8 @@
     package="com.sj.http_practice">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -23,6 +25,8 @@
         <activity android:name=".okhttp.base_opration.post.PostAct"/>
         <activity android:name=".okhttp.base_opration.head.Head"/>
         <activity android:name=".okhttp.base_opration.header.HeaderAct"/>
+        <activity android:name=".okhttp.base_opration.cache.CacheAct"/>
+        <activity android:name=".okhttp.base_opration.cancel.CancelAct"/>
     </application>
 
 </manifest>
