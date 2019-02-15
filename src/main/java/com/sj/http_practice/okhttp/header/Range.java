@@ -1,5 +1,6 @@
-package com.sj.http_practice.okhttp.base_opration.post;
+package com.sj.http_practice.okhttp.header;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,12 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.Util.GetCA;
 
-import java.io.InputStream;
 import java.util.Iterator;
 
 import io.reactivex.Single;
@@ -22,28 +22,27 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.FormBody;
 import okhttp3.Headers;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * Post-发送"表单数据"
+ * Header-Range
  *
  * Created by SJ on 2019/2/13.
  */
-public class PostFormData extends Fragment {
+public class Range extends Fragment {
 
-    private static final String TAG = "===" + PostFormData.class.getSimpleName();
+    private static final String TAG = "===" + Range.class.getSimpleName();
+    private final String URL = "http://pic29.photophoto.cn/20131021/0005018305864117_b.png";
 
     private TextView text;
+    private ImageView img;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_post_str, container, false);
+        return inflater.inflate(R.layout.fragment_header, container, false);
     }
 
     @Override
@@ -51,36 +50,26 @@ public class PostFormData extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         text = view.findViewById(R.id.text);
+        img = view.findViewById(R.id.img);
 
         Button btn = view.findViewById(R.id.test);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postStr();
+                asynGet();
             }
         });
     }
 
-    private void postStr() {
+    private void asynGet() {
         Single.create(new SingleOnSubscribe<Result>() {
             @Override
             public void subscribe(SingleEmitter<Result> emitter) throws Exception {
-                //OkHttpClient client = new OkHttpClient();
-                InputStream caIn = getActivity().getAssets().open("LocalFiddler.cer");
-                //
-                OkHttpClient client = new OkHttpClient.Builder()
-                        .sslSocketFactory(GetCA.getCertificates(caIn)).build();
-
-                RequestBody formBody = new FormBody.Builder()
-                        .add("name1", "张三")
-                        .add("name2", "李四")
-                        .build();
-
+                OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://en.wikipedia.org/w/index.php")
-                        .post(formBody)
+                        .url(URL)
+                        .header("Range", "bytes=0-30000")
                         .build();
-
                 Response response = client.newCall(request).execute();
 
                 //
@@ -90,7 +79,6 @@ public class PostFormData extends Fragment {
                 final StringBuilder responseStr = new StringBuilder();
 
                 //-------------------------//
-                request = response.request();
                 requestLine.append(request.method() + " " + request.url() + " ");
 
                 Headers requestHeader = request.headers();
@@ -111,8 +99,6 @@ public class PostFormData extends Fragment {
                 for (int i = 0; i < responseHeaders.size(); i++) {
                     responseStr.append(responseHeaders.name(i) + ": " + responseHeaders.value(i) + "\n");
                 }
-                responseStr.append("\n");
-                responseStr.append(response.body().string());
 
                 Result result = new Result();
                 result.str = requestLine.toString() + "\n"
@@ -130,6 +116,7 @@ public class PostFormData extends Fragment {
                     @Override
                     public void accept(Result result) throws Exception {
                         text.setText(result.str);
+                        img.setImageBitmap(BitmapFactory.decodeByteArray(result.body, 0, result.body.length));
                     }
                 }, new Consumer<Throwable>() {
                     @Override

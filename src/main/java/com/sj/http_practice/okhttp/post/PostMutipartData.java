@@ -1,4 +1,4 @@
-package com.sj.http_practice.okhttp.base_opration.post;
+package com.sj.http_practice.okhttp.post;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,10 +14,8 @@ import com.sj.http_practice.R;
 import com.sj.http_practice.Util.GetCA;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -34,7 +32,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okio.Okio;
 
 /**
  * Post-发送"多部分形式的数据-(单文件/文本/文本+文件)"

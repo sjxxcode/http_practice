@@ -1,4 +1,4 @@
-package com.sj.http_practice.okhttp.base_opration.post;
+package com.sj.http_practice.okhttp.post;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.Util.GetCA;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

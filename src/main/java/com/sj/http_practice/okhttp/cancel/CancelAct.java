@@ -1,11 +1,9 @@
-package com.sj.http_practice.okhttp.base_opration.cancel;
+package com.sj.http_practice.okhttp.cancel;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,7 +11,6 @@ import android.widget.TextView;
 import com.sj.http_practice.R;
 import com.sj.http_practice.Util.GetCA;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -23,8 +20,6 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.Cache;
-import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.sj.http_practice.okhttp.base_opration.cache.CacheAct;
-import com.sj.http_practice.okhttp.base_opration.cancel.CancelAct;
-import com.sj.http_practice.okhttp.base_opration.get.GetAct;
-import com.sj.http_practice.okhttp.base_opration.head.Head;
-import com.sj.http_practice.okhttp.base_opration.header.HeaderAct;
-import com.sj.http_practice.okhttp.base_opration.post.PostAct;
+import com.sj.http_practice.okhttp.authentication.AuthenticationAct;
+import com.sj.http_practice.okhttp.cache.CacheAct;
+import com.sj.http_practice.okhttp.cancel.CancelAct;
+import com.sj.http_practice.okhttp.get.GetAct;
+import com.sj.http_practice.okhttp.head.Head;
+import com.sj.http_practice.okhttp.header.HeaderAct;
+import com.sj.http_practice.okhttp.post.PostAct;
+import com.sj.http_practice.okhttp.timeout.TimeOutAct;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +60,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, CancelAct.class));
+            }
+        });
+
+        this.findViewById(R.id.timeout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TimeOutAct.class));
+            }
+        });
+
+        this.findViewById(R.id.authentication).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AuthenticationAct.class));
             }
         });
     }

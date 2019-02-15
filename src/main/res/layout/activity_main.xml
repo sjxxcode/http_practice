@@ -38,4 +38,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"/>
+
+    <Button
+        android:id="@+id/timeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TimeOut"/>
+
+    <Button
+        android:id="@+id/authentication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Authentication"/>
 </com.sj.http_practice.TagLayout>

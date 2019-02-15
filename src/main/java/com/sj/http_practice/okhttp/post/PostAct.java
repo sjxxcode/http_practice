@@ -1,4 +1,4 @@
-package com.sj.http_practice.okhttp.base_opration.post;
+package com.sj.http_practice.okhttp.post;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.okhttp.base_opration.get.Asynchronous_Get;
-import com.sj.http_practice.okhttp.base_opration.get.Synchronous_Get;
 
 /**
  * Created by SJ on 2019/2/12.

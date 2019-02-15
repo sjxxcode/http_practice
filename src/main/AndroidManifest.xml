@@ -21,12 +21,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".okhttp.base_opration.get.GetAct"/>
-        <activity android:name=".okhttp.base_opration.post.PostAct"/>
-        <activity android:name=".okhttp.base_opration.head.Head"/>
-        <activity android:name=".okhttp.base_opration.header.HeaderAct"/>
-        <activity android:name=".okhttp.base_opration.cache.CacheAct"/>
-        <activity android:name=".okhttp.base_opration.cancel.CancelAct"/>
+        <activity android:name=".okhttp.get.GetAct"/>
+        <activity android:name=".okhttp.post.PostAct"/>
+        <activity android:name=".okhttp.head.Head"/>
+        <activity android:name=".okhttp.header.HeaderAct"/>
+        <activity android:name=".okhttp.cache.CacheAct"/>
+        <activity android:name=".okhttp.cancel.CancelAct"/>
+        <activity android:name=".okhttp.timeout.TimeOutAct"/>
+        <activity android:name=".okhttp.authentication.AuthenticationAct"/>
     </application>
 
 </manifest>

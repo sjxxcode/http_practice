@@ -1,4 +1,4 @@
-package com.sj.http_practice.okhttp.base_opration.cache;
+package com.sj.http_practice.okhttp.cache;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,7 +13,6 @@ import com.sj.http_practice.Util.GetCA;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Iterator;
 
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
@@ -23,7 +22,6 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
-import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

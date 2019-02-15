@@ -1,4 +1,4 @@
-package com.sj.http_practice.okhttp.base_opration.get;
+package com.sj.http_practice.okhttp.get;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
