@@ -51,7 +51,7 @@ public class NetUtil {
             InputStream caIn = context.getAssets().open("LocalFiddler.cer");
 
             return httlClient.newBuilder()
-                    .sslSocketFactory(GetCA.getCertificates(caIn));
+                    .sslSocketFactory(CerUtil.getCertificates(caIn));
         } catch (IOException e) {
             e.printStackTrace();
         }
