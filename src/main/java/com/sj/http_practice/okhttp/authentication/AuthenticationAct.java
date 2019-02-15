@@ -27,7 +27,9 @@ import okhttp3.Response;
 import okhttp3.Route;
 
 /**
- * 超时
+ * 认证
+ * 当访问的页面需要用户提供 “证书”来认证“身份”的时候。
+ * 如果此时响应报文的状态码为401，需要构造一个包含Header为Authorizatiobn的Request 。
  *
  * Created by SJ on 2019/2/14.
  */
