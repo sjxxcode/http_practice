@@ -11,7 +11,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
 
 /**
- * 添加自签名CA
+ * 添加自签名证书
  * <p>
  * Created by SJ on 2019/2/13.
  */
