@@ -15,7 +15,7 @@ import javax.net.ssl.TrustManagerFactory;
  * <p>
  * Created by SJ on 2019/2/13.
  */
-public class GetCA {
+public class CerUtil {
 
     public static SSLSocketFactory getCertificates(InputStream... certificates) {
         SSLSocketFactory sslSocketFactory = null;

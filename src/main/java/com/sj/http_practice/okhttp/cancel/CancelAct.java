@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.Util.GetCA;
+import com.sj.http_practice.Util.CerUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,7 +50,7 @@ public class CancelAct extends AppCompatActivity{
 
             //
             okHttpClient = new OkHttpClient.Builder()
-                    .sslSocketFactory(GetCA.getCertificates(caIn)).build();
+                    .sslSocketFactory(CerUtil.getCertificates(caIn)).build();
         } catch (IOException e) {
             e.printStackTrace();
         }

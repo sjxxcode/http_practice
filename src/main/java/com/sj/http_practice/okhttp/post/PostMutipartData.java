@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.Util.GetCA;
+import com.sj.http_practice.Util.CerUtil;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -72,7 +72,7 @@ public class PostMutipartData extends Fragment {
                 InputStream caIn = getActivity().getAssets().open("LocalFiddler.cer");
                 //
                 OkHttpClient client = new OkHttpClient.Builder()
-                        .sslSocketFactory(GetCA.getCertificates(caIn)).build();
+                        .sslSocketFactory(CerUtil.getCertificates(caIn)).build();
 
                 RequestBody formBody = new MultipartBody.Builder()
                         .setType(MultipartBody.FORM)

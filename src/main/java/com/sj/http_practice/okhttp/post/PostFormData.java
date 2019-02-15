@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.Util.GetCA;
+import com.sj.http_practice.Util.CerUtil;
 
 import java.io.InputStream;
 import java.util.Iterator;
@@ -68,7 +68,7 @@ public class PostFormData extends Fragment {
                 InputStream caIn = getActivity().getAssets().open("LocalFiddler.cer");
                 //
                 OkHttpClient client = new OkHttpClient.Builder()
-                        .sslSocketFactory(GetCA.getCertificates(caIn)).build();
+                        .sslSocketFactory(CerUtil.getCertificates(caIn)).build();
 
                 RequestBody formBody = new FormBody.Builder()
                         .add("name1", "张三")

@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.sj.http_practice.R;
-import com.sj.http_practice.Util.GetCA;
+import com.sj.http_practice.Util.CerUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class CacheAct extends AppCompatActivity{
             //
             this.okHttpClient = new OkHttpClient.Builder()
                     .cache(cache)
-                    .sslSocketFactory(GetCA.getCertificates(caIn)).build();
+                    .sslSocketFactory(CerUtil.getCertificates(caIn)).build();
         } catch (IOException e) {
             e.printStackTrace();
         }
