@@ -11,6 +11,10 @@
         * DELETE
      * Header
         * [Range](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/base_opration/header/Range.java)
+      * [Okhttp-缓存](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/cache)  
+      * [Okhttp-超时](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/timeout)
+      * [Okhttp-取消请求](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/cancel)
+      * [Okhttp-认证](https://github.com/sjxxcode/http_practice/tree/master/src/main/java/com/sj/http_practice/okhttp/authentication)
 
     
     
