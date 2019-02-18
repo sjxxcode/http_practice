@@ -1,0 +1,71 @@
+设置Header
+header():这种方式设置的Header是以最后一次设置的为准,新值会覆盖旧值。就是说，如果第一次我要设置"Accept"告诉服务端我可以接受的数据的类型是"text/html"，那么再调用该方法对同样的Header设置不同值的话，旧值会被覆盖掉。
+addHeader():这种方式会添加多个name相同,value不同的请求头。
+
+
+Post
+添加实体
+RequestBody
+--定义:对应的是请求报文的实体部分，该类对应实体中添加的"文本,单文件"等数据。
+--使用:用于提交"文本,单文件"等数据。
+FormBody
+--定义:该类对应实体中添加的"普通表单"数据。
+--作用:用于提交“普通表单”数据。
+MultipartBody
+--定义:该类对应实体中添加的"文本+图片/音/视频等二进制"数据。
+--作用:用于提交“文本+图片/音/视频等二进制”数据。
+
+MediaType：
+定义:表示实体中传输数据的类型。Media Type就是指的MIMIE。
+举例:普通文本数据："text/plain; charset=UTF-8"。html文件:"text/html"等等。
+
+Cache
+设置是否缓存:OkHttpClient.cache()
+CacheControl
+--FORCE_NETWORK:实际设置的请求头是"Cache-Control: no-cache"。当设置了该请求头，不管有没有缓存都会联网从服务端取。
+--FORCE_CACHE:从缓存目录中拿数据。本地缓存有数据从缓存中拿，没有的话返回null。
+设置"Cache-Control"Header其他选项的效果。
+如果设置了"max-age"，okhttp会在资源最大时间之内从缓存中获取。等时间超过了"max-age"定义的最大秒数,则会联网请求数据。
+"no-store"与"no-cache"效果一样。
+
+关闭请求
+调用Call.cancel(),如果该次网络请求过程中调用cancel()会抛出异常。(经过测试，总是抛出"SocketException")
+
+超时
+-定义:一个事件 发生的 时间周期。通俗的理解，完成这个事件的最长时间限制。
+-http请求过程包括哪些超时
+--TCP连接超时
+--client向server发送请求报文超时(写超时)
+--server向client发送响应报文超时(读超时)
+-okhttp如何设置这些超时
+--callTimeout():在一次http通信过程中从请求发出到得到server发回给client响应报文的最大限制时间。
+--这个最大时间包括:
+--DNS ip地址解析
+--Tcp连接
+--发送请求报文
+--服务端处理报文数据
+--客户端读取响应报文数据
+--重试或者重定向时间。 
+-connectTimeout():设置TCP连接超时时间。
+-writeTimeout():写超时。
+-readTimeout():读超时。
+-一次http请求的耗时该怎么计算？
+--如果设置了callTimeout()的话，不管设不设置tcp连接超时,发送报文超时,获取相应报文超时，那么http请求的花费的时间不会超过callTimeout()方法设置的限制。
+--如果没设置callTimeout(),而通过connectTimeout()、writeTimeout()、readTimeout()设置了相应功能的超时时间，那么总时间不会超过这3个方法设置的总时间之和。
+
+认证
+当访问的页面需要用户提供 “证书”来认证“身份”的时候。如果此时响应报文的状态码为401，需要构造一个包含Header为Authorizatiobn的Request 。
+需要调用OkhttpClient.Builder.authenticator()实现Authenticator重新构造一个包含"
+Authorization
+" Header的请求报文(request)。
+
+MIME:
+定义:是给互联网上传输的内容赋予的分类类型(对实体中传输数据的一个说明,"text/html","image/png"等)。一份内容的互联网媒体类型是由其文件格式与内容决定的。互联网媒体类型与文件拓展名相对应，因此计算机系统常常通过拓展名来确定一个文件的媒体类型并决定与其相关联的软件。互联网媒体类型的分类标准由互联网号码分配局（IANA）发布。1996年十一月，媒体类型在RFC 2045中被最初定义，当时仅被使用在SMTP协议的电子邮件中。现在其他的协议（比如HTTP或者SIP）也都常使用MIME类型。
+格式:一个MIME类型至少包括两个部分：一个类型（type）和一个子类型（subtype）。此外，它还可能包括一个或多个可选参数（optional parameter）。
+比如，HTML文件的互联网媒体类型可能是text/html; charset = UTF-8。在这个例子中，文件类型为text，子类型为html，而charset是一个可选参数，其值为UTF-8。
+
+
+参考:
+https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B
+https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+
