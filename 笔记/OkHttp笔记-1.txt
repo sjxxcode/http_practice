@@ -17,23 +17,25 @@ Interceptor
 
 
 做了哪些事
-1：拦截之前做准备工作。
-2：执行Interceptor内部定义接口Chain的proceed(),交给下一个节点的拦截器去做内部定义的事情并等待下个节点的回应。
-3：当前拦截器拿到下一个拦截器做完事情的响应，然后继续做后续的事情。
+1：为拦截器执行核心工作做准备。
+2：执行Chain(这个Chain的其实是RealInterceptorChain，初始化是在getResponseWithInterceptorChain()内部指定的)的proceed(),交给下一个节点的拦截器去做内部定义的事情且当前拦截器等待下个拦截器的返回结果。
+3：当前拦截器收到下一个拦截器做完事情的响应，然后继续做后续的事情。
 
 
 重要方法
 intercept():
-拦截器实例要实现的方法。
+1：拦截器实例要实现的方法。
+2：拦截器会在该方法执行具体赋予这个拦截器角色的任务。
+3：通过RealInterceptorChain的proceed()通知该拦截器后续拦截器执行响应的操作。
 
 
 分类：
-重试与重定向拦截器(RetryAndFollowUpInterceptor):该拦截器具备个功能，失败重试以及重定向到"Location"中指定的新URL所
+重试与重定向拦截器(RetryAndFollowUpInterceptor):该拦截器具备2个功能，失败重试以及重定向到"Location"中指定的新URL所
 指向的页面。
 桥接拦截器(BridgeInterceptor)：组装请求报文以及对响应报文做必要的修改。
 缓存拦截器(CacheInterceptor)：对响应报文内容进行缓存。
-连接拦截器：
-网络拦截器：
+连接拦截器(ConnectInterceptor)：tcp/https链接。
+CallServerInterceptor：解析响应报文。
 -----------------------------------------------------------------------------------------------------------------
 分析exqueue()内部执行流程
 
@@ -41,16 +43,16 @@ Dispatcher:
 enqueue()
 1:把准备要执行的AsyncCall添加到"readyAsyncCalls"队列中.
 2:调用promoteAndExecute()
-	2.1:遍历"readyAsyncCalls"队列，把可执行的Call添加至"runningAsyncCalls"队列中(判断条件:查看
+-2.1:遍历"readyAsyncCalls"队列，把可执行的Call添加至"runningAsyncCalls"队列中(判断条件:查看
 runningAsyncCalls中正在执行的异步请求是否超过了maxRequests限制,如果超过了则break。注意此时刚添加的异步Call还
 在"readyAsyncCalls"队列中)。
-	2.2:执行AsyncCall的executeOn(),把上一步获得的AsyncCall添加至Dispatcher定义的线程池中去执行(该线程池可外部
+-2.2:执行AsyncCall的executeOn(),把上一步获得的AsyncCall添加至Dispatcher定义的线程池中去执行(该线程池可外部
 指定，在构造OkHttpClient时指定)。
 
 
 AsyncCall
 execute():
-1:执行ReadCall的getResponseWithInterceptorChain(),该方法是核心也是从此时开始了网络任务的执行
+执行ReadCall的getResponseWithInterceptorChain(),该方法是核心也是从此时开始了网络任务的执行
 
 
 ReadCall
