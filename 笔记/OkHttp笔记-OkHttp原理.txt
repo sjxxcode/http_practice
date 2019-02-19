@@ -32,10 +32,20 @@ intercept():
 分类：
 重试与重定向拦截器(RetryAndFollowUpInterceptor):该拦截器具备2个功能，失败重试以及重定向到"Location"中指定的新URL所
 指向的页面。
+-失败重试:当发生"RouteException/IOException"异常的时候,会调用"recover()"查看是否需要重试。
+--recover()会从4个方面考虑:
+---1:在构造OkHttpClient的时候是否指定"retryOnConnectionFailure"可重试(默认重试,在build()内部做了赋值操作)
+---2:判断如果请求已经发出了。
+---3:
+---4：
+
 桥接拦截器(BridgeInterceptor)：组装请求报文以及对响应报文做必要的修改。
-缓存拦截器(CacheInterceptor)：对响应报文内容进行缓存。
-连接拦截器(ConnectInterceptor)：tcp/https链接。
-CallServerInterceptor：解析响应报文。
+
+缓存拦截器(CacheInterceptor)：负责读取缓存和更新缓存。
+
+连接拦截器(ConnectInterceptor)：负责从客户端到服务器的连接工作，例如:tcp/https链接。
+
+CallServerInterceptor：负责向服务器发送请求数据，并从服务器读取响应数据。
 -----------------------------------------------------------------------------------------------------------------
 分析exqueue()内部执行流程
 
