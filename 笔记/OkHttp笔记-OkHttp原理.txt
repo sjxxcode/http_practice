@@ -35,8 +35,8 @@ intercept():
 -失败重试:当发生"RouteException/IOException"异常的时候,会调用"recover()"查看是否需要重试。
 --recover()会从4个方面考虑:
 ---1:在构造OkHttpClient的时候是否指定"retryOnConnectionFailure"可重试(默认重试,在build()内部做了赋值操作)
----2:判断如果请求已经发出了。
----3:
+---2:判断是否该次重新请求已经发出了。
+---3:判断该异常是不是致命性的异常(SSL连接建立期间的异常，ProtocolException(底层协议出现的错误))。
 ---4：
 -重定向:调用"followUpRequest()",判断如果当前响应报文的状态码是:300,302,302,303则会重新构造一个Request去发送给server。
 
